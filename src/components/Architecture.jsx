@@ -18,16 +18,16 @@ const decisions = [
     body: "Spring or Guice would solve the wiring problem with annotations and magic. We use one class with one constructor. You can read every dependency top to bottom in 20 lines.",
   },
   {
-    title: "Decision title goes here",
-    body: "Short paragraph explaining the choice and the trade-off. Two or three sentences.",
+    title: "Typed carriers over session state",
+    body: "When a guest picks a room and hits Book Now, the booking page needs that room and the dates. We could have stashed it in a static field on SessionManager. Instead, BookingDetailsData is built by Browse Rooms, passed through the navigator, and consumed by the booking page. No hidden mutable state, and the compiler enforces the shape.",
   },
   {
-    title: "Decision title goes here",
-    body: "Short paragraph explaining the choice and the trade-off. Two or three sentences.",
+    title: "Builders for repeating UI",
+    body: "Room cards and booking cards both render in lists. The first time, we built them inline in the controllers and ended up with 30 lines of node construction each. We pulled that into RoomCardBuilder and BookingCardBuilder. Controllers shrank by half, and the cards look identical everywhere they show up.",
   },
   {
-    title: "Decision title goes here",
-    body: "Short paragraph explaining the choice and the trade-off. Two or three sentences.",
+    title: "Opt-in refresh through one interface",
+    body: "Some screens need fresh data every time they're shown (Manage Bookings has to display new bookings made elsewhere). Others do not. We could have called refresh on every controller after every navigation. Instead, controllers that need it implement Refreshable, and the navigator only calls refresh on those. One interface, one method, opt-in only.",
   },
 ];
 

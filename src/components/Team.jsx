@@ -72,7 +72,7 @@ export default function Team() {
 					<p className="text-sm font-medium text-muted-foreground mb-3">Team</p>
 					<h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">Five people, one app.</h2>
 					<p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-						Group 03 from COMP 3350 A01. We met twice a week, split the work by feature, and reviewed each other's code
+						Group 03 from COMP 3350 A01. We met twice a week, split the work reasonably, and reviewed each other's code
 						on every merge request.
 					</p>
 				</div>
