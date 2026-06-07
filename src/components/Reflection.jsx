@@ -141,6 +141,19 @@ const iterations = [
     evidence: ["Placeholder. Replace with a short bullet of evidence."],
     remarks: ["Placeholder paragraph. Replace with the team's reflection for this iteration."],
   },
+  {
+    id: "final",
+    label: "Final thoughts",
+    subtitle: "Stepping back from the iterations",
+    summary:
+      "Placeholder summary. Replace this with a short closing reflection on the whole project.",
+    shipped: null,
+    feedback: null,
+    changed: null,
+    learned: null,
+    evidence: null,
+    remarks: ["Placeholder paragraph. Replace with the team's final reflection on the project."],
+  },
 ];
 
 const sectionDefs = [
