@@ -36,9 +36,14 @@ export default function Hero() {
         </div>
 
         <div className="mt-20 mx-auto max-w-5xl">
-          <div className="aspect-[16/10] w-full rounded-2xl border border-border bg-muted shadow-sm overflow-hidden flex items-center justify-center text-muted-foreground text-sm">
-            {/* TODO: replace with a hero screenshot of the Browse Rooms or Manage Bookings screen */}
-            <span>Hero screenshot goes here</span>
+          <div className="aspect-video w-full rounded-2xl border border-border bg-muted shadow-sm overflow-hidden">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/_t2ylVjSZOg"
+              title="CheckInn"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
           </div>
         </div>
       </div>
