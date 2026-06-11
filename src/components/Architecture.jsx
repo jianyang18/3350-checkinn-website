@@ -26,8 +26,8 @@ const decisions = [
     body: "Room cards and booking cards both render in lists. The first time, we built them inline in the controllers and ended up with 30 lines of node construction each. We pulled that into RoomCardBuilder and BookingCardBuilder. Controllers shrank by half, and the cards look identical everywhere they show up.",
   },
   {
-    title: "Opt-in refresh through one interface",
-    body: "Some screens need fresh data every time they're shown (Manage Bookings has to display new bookings made elsewhere). Others do not. We could have called refresh on every controller after every navigation. Instead, controllers that need it implement Refreshable, and the navigator only calls refresh on those. One interface, one method, opt-in only.",
+    title: "A factory for building users",
+    body: "We create users in two places: a guest signing up, and a manager making a staff or manager account. The old code built a guest first, then patched the permission level with a second database write. We pulled user construction into UserFactory, so both paths build a fully-formed user in one step with the right permission from the start. One write instead of two, and the two services no longer depend on each other.",
   },
 ];
 

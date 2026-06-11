@@ -1,14 +1,64 @@
-import {Card, CardContent, CardHeader} from './ui/card.jsx';
+import {Card} from './ui/card.jsx';
 import {cn} from '@/lib/utils';
 
 const team = [
 	{
 		name: 'Jian Yang',
 		initials: 'JY',
-		role: 'Placeholder role',
-		contributions: ['Placeholder contribution.', 'Placeholder contribution.'],
-		skills: ['Java', 'JavaFX', 'JUnit'],
+		role: 'Setup & database',
+		contributions: [
+			'Scaffolded the project and set up the initial structure.',
+			'Built the Manage Bookings page.',
+			'Designed and built the database interfaces and their implementations.',
+		],
+		skills: ['Java', 'JavaFX', 'SQLite', 'JDBC'],
 		photo: '/team/jian.png',
+	},
+	{
+		name: 'Dylan Zarn',
+		initials: 'DZ',
+		role: 'Navigation & My Bookings',
+		contributions: [
+			'ViewContainer and navigation handling and implementation.',
+			'Manage Rooms and My Bookings UI.',
+			'Testing and implementation.',
+			'Organization of constants classes and service class initial implementations.',
+		],
+		skills: [
+			'Project Structure',
+			'Iterative Group Work',
+			'Git/GitLab',
+			'Mock & Stub Test Design',
+			'Testing Pyramid',
+			'Project Management',
+		],
+		photo: '/team/dylan.png',
+	},
+	{
+		name: 'Baiel Nurmatbek uulu',
+		initials: 'BN',
+		role: 'Authentication, Account Management, and Testing',
+		contributions: [
+			'Built and improved sign-in/sign-up flows with validation, session handling, and role-based navigation.',
+			'Implemented manager account administration for creating, editing, deleting, and validating guest/staff/manager accounts.',
+			'Added and updated unit/integration tests for AuthService, AccountAdminService, validators, and database-backed user workflows.',
+			'Helped improve project design by moving validation/business rules out of controllers and into services/validators.',
+		],
+		skills: [
+			'Java',
+			'JavaFX',
+			'FXML',
+			'SQLite',
+			'Gradle',
+			'JUnit',
+			'Mockito',
+			'Git/GitLab',
+			'MVC',
+			'Layered Architecture',
+			'Unit Testing',
+			'Integration Testing',
+		],
+		photo: '/team/baiel.png',
 	},
 	{
 		name: 'Nithisha Karthikeyan',
@@ -25,22 +75,6 @@ const team = [
 		contributions: ['Placeholder contribution.', 'Placeholder contribution.'],
 		skills: ['Java', 'SQLite'],
 		photo: '/team/leif.png',
-	},
-	{
-		name: 'Baiel Nurmatbek uulu',
-		initials: 'BN',
-		role: 'Placeholder role',
-		contributions: ['Placeholder contribution.', 'Placeholder contribution.'],
-		skills: ['Java', 'Gradle'],
-		photo: '/team/baiel.png',
-	},
-	{
-		name: 'Dylan Zarn',
-		initials: 'DZ',
-		role: 'Placeholder role',
-		contributions: ['Placeholder contribution.', 'Placeholder contribution.'],
-		skills: ['Java', 'Mockito'],
-		photo: '/team/dylan.png',
 	},
 ];
 
@@ -77,12 +111,13 @@ export default function Team() {
 					</p>
 				</div>
 
-				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+				<div className="space-y-5">
 					{team.map((m) => (
 						<Card key={m.name} className="bg-background">
-							<CardHeader>
-								<div className="flex items-center gap-3 mb-2">
-									<div className="h-12 w-12 rounded-full bg-muted overflow-hidden flex items-center justify-center text-sm font-semibold shrink-0">
+							<div className="p-6 md:p-8 flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
+								{/* Identity */}
+								<div className="flex items-center gap-4 md:w-60 shrink-0">
+									<div className="h-16 w-16 rounded-full bg-muted overflow-hidden flex items-center justify-center text-base font-semibold shrink-0">
 										{m.photo ? (
 											<img src={m.photo} alt={m.name} loading="lazy" className="h-full w-full object-cover" />
 										) : (
@@ -90,33 +125,40 @@ export default function Team() {
 										)}
 									</div>
 									<div>
-										<p className="font-semibold leading-tight">{m.name}</p>
-										{m.role && <p className="text-xs text-muted-foreground mt-0.5">{m.role}</p>}
+										<p className="font-semibold text-lg leading-tight">{m.name}</p>
+										{m.role && <p className="text-sm text-muted-foreground mt-0.5">{m.role}</p>}
 									</div>
 								</div>
-							</CardHeader>
-							<CardContent>
-								{m.contributions.length > 0 && (
-									<>
-										<p className="text-xs font-medium text-muted-foreground mb-2 uppercase tracking-wider">
-											Contributions
-										</p>
-										<ul className="space-y-1 text-sm text-muted-foreground leading-relaxed mb-5">
-											{m.contributions.map((c, i) => (
-												<li key={i}>· {c}</li>
-											))}
-										</ul>
-									</>
-								)}
-								<p className="text-xs font-medium text-muted-foreground mb-2 uppercase tracking-wider">Skills gained</p>
-								<div className="flex flex-wrap gap-1.5">
-									{m.skills.map((s) => (
-										<span key={s} className="rounded-full bg-muted px-2.5 py-1 text-xs">
-											{s}
-										</span>
-									))}
+
+								{/* Contributions */}
+								<div className="flex-1">
+									<p className="text-xs font-medium text-muted-foreground mb-2 uppercase tracking-wider">
+										Contributions
+									</p>
+									<ul className="space-y-1.5 text-sm text-muted-foreground leading-relaxed">
+										{m.contributions.map((c, i) => (
+											<li key={i} className="flex gap-2">
+												<span className="text-foreground/40 shrink-0">·</span>
+												<span>{c}</span>
+											</li>
+										))}
+									</ul>
 								</div>
-							</CardContent>
+
+								{/* Skills */}
+								<div className="md:w-52 shrink-0">
+									<p className="text-xs font-medium text-muted-foreground mb-2 uppercase tracking-wider">
+										Skills gained
+									</p>
+									<div className="flex flex-wrap gap-1.5">
+										{m.skills.map((s) => (
+											<span key={s} className="rounded-full bg-muted px-2.5 py-1 text-xs">
+												{s}
+											</span>
+										))}
+									</div>
+								</div>
+							</div>
 						</Card>
 					))}
 				</div>

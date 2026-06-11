@@ -40,12 +40,16 @@ const layers = [
       { name: "ViewNavigator", type: "class" },
       { name: "Screen", type: "enum" },
       { name: "ContainerController", type: "abstract" },
+      { name: "ViewContainerController", type: "class" },
       { name: "Refreshable", type: "interface" },
       { name: "Tab", type: "enum" },
-      { name: "Controllers (7)", type: "class" },
+      { name: "Controllers (9)", type: "class" },
       { name: "RoomCardBuilder", type: "class" },
       { name: "BookingCardBuilder", type: "class" },
+      { name: "MyBookingCardBuilder", type: "class" },
       { name: "Formatters", type: "class" },
+      { name: "DatePickers", type: "class" },
+      { name: "PresentationConstants", type: "class" },
     ],
   },
   {
@@ -61,9 +65,15 @@ const layers = [
       { name: "RoomService", type: "class" },
       { name: "AccountAdminService", type: "class" },
       { name: "UserManager", type: "class" },
-      { name: "Validators (3)", type: "class" },
-      { name: "Exception bases (3)", type: "abstract" },
-      { name: "Exceptions (14+)", type: "class" },
+      { name: "UserFactory", type: "class" },
+      { name: "Validators (4)", type: "class" },
+      { name: "LogicConstants", type: "class" },
+      { name: "ValidationException", type: "class" },
+      { name: "AuthException", type: "class" },
+      { name: "BookingException", type: "class" },
+      { name: "AccountAdminException", type: "class" },
+      { name: "RoomServiceException", type: "class" },
+      { name: "RoomNotAvailableException", type: "class" },
     ],
   },
   {
@@ -82,6 +92,11 @@ const layers = [
       { name: "Database", type: "class" },
       { name: "DatabaseInitializer", type: "class" },
       { name: "DatabaseSeeder", type: "class" },
+      { name: "PersistenceConstants", type: "class" },
+      { name: "DatabaseException", type: "class" },
+      { name: "BookingDBException", type: "class" },
+      { name: "RoomDBException", type: "class" },
+      { name: "UserDBException", type: "class" },
     ],
   },
   {
@@ -97,7 +112,21 @@ const layers = [
       { name: "User", type: "class" },
       { name: "Booking", type: "class" },
       { name: "Room", type: "class" },
+      { name: "GuestInfo", type: "class" },
       { name: "BookingDetailsData", type: "class" },
+      { name: "ConvertPermissionLevel", type: "class" },
+    ],
+  },
+  {
+    num: "◆",
+    label: "Enums",
+    description: "Typed enums, used across every layer",
+    accent: "bg-teal-400",
+    accentText: "text-teal-600",
+    note: "Replace magic strings and numbers with named values",
+    showArrowBelow: false,
+    shared: true,
+    chips: [
       { name: "PermissionLevel", type: "enum" },
       { name: "BookingStatus", type: "enum" },
       { name: "RoomStatus", type: "enum" },
@@ -210,8 +239,9 @@ export default function ArchitectureDiagram() {
         <span className="font-medium text-foreground">Business</span>, and{" "}
         <span className="font-medium text-foreground">Persistence</span> form a
         one-way dependency chain.{" "}
-        <span className="font-medium text-foreground">Object</span> sits aside
-        as pure data and is used by every layer.
+        <span className="font-medium text-foreground">Object</span> and{" "}
+        <span className="font-medium text-foreground">Enums</span> sit aside as
+        pure data and are used by every layer.
       </p>
     </div>
   );
