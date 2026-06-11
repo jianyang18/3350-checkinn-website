@@ -63,17 +63,25 @@ const team = [
 	{
 		name: 'Nithisha Karthikeyan',
 		initials: 'NK',
-		role: 'Placeholder role',
-		contributions: ['Placeholder contribution.', 'Placeholder contribution.'],
-		skills: ['Java', 'JavaFX'],
+		role: 'Rooms & browsing',
+		contributions: [
+			'Built the Browse Rooms feature.',
+			'Built RoomService, and later refactored it.',
+			'Built the Manage Rooms feature.',
+		],
+		skills: ['JavaFX', 'GitLab', 'SDLC', 'Unit Testing'],
 		photo: '/team/nithisha.png',
 	},
 	{
 		name: 'Leif Magnusson',
 		initials: 'LM',
-		role: 'Placeholder role',
-		contributions: ['Placeholder contribution.', 'Placeholder contribution.'],
-		skills: ['Java', 'SQLite'],
+		role: 'End-to-end testing & booking',
+		contributions: [
+			'Wrote all of the end-to-end tests.',
+			'Built the Add a Booking page.',
+			'Fixed the room dropdown rendering issue.',
+		],
+		skills: ['Java', 'JavaFX', 'TestFX', 'End-to-End Testing'],
 		photo: '/team/leif.png',
 	},
 ];
