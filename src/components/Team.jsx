@@ -11,7 +11,7 @@ const team = [
 			'Built the Manage Bookings page.',
 			'Designed and built the database interfaces and their implementations.',
 		],
-		skills: ['Java', 'JavaFX', 'SQLite', 'JDBC'],
+		skills: ['Java', 'JavaFX', 'SQLite', 'JDBC', 'System Design', 'Code Review', 'Problem Solving', 'Team Collaboration'],
 		photo: '/team/jian.png',
 	},
 	{
